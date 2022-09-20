@@ -8,7 +8,7 @@ public class GamePanel extends JPanel {
 
     private MouseInputs mouseInputs;
     private float xDelta = 100, yDelta = 100;
-    private float xDir = 0.05f, yDir = 0.05f;
+    private float xDir = 0.1f, yDir = 0.1f;
     private int frames = 0;
     private long lastCheck = 0;
     private Color color = new Color(150,20,90);
@@ -63,15 +63,16 @@ public class GamePanel extends JPanel {
         yDelta += yDir;
         if(yDelta > 400 || yDelta < 0) {
             yDir *= -1;
+            color = getRndColor();
         }
     }
 
     private Color getRndColor() {
         int r = random.nextInt(255);
-        int b = random.nextInt(255);
         int g = random.nextInt(255);
+        int b = random.nextInt(255);
 
-        return new Color(r,b,g);
+        return new Color(r,g,b);
     }
 
 }
